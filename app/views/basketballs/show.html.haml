@@ -9,10 +9,12 @@
 %p
   %b Facts:
   = @basketball.facts
-%h2 Discussions
+%p
+  %b Discussions:
   - for discussion in @basketball.discussions
     %ul
       %li= discussion.body
+
 = link_to 'Edit', edit_basketball_path(@basketball)
 \|
 = link_to 'Back', basketballs_path
