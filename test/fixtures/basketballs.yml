@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  team: MyString
-  facts: MyText
+  name: "Stephen Curry"
+  team: "Golden State Warriors"
+  facts: "3 point shooter"
 
 two:
-  name: MyString
-  team: MyString
-  facts: MyText
+  name: "Lebron James"
+  team: "Los Angeles Lakers"
+  facts: "4 championships"
+
+three:
+  name: "Michael Jordan"
+  team: "Chicago Bulls"
+  facts: "GOAT"

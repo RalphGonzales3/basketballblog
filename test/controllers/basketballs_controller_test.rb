@@ -8,6 +8,10 @@ class BasketballsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get basketballs_url
     assert_response :success
+
+    assert_template layout: 'application'
+
+    assert_select 'h1', 'Basketball Players'
   end
 
   test "should get new" do
@@ -17,7 +21,7 @@ class BasketballsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create basketball" do
     assert_difference('Basketball.count') do
-      post basketballs_url, params: { basketball: { facts: @basketball.facts, name: @basketball.name, team: @basketball.team } }
+      post basketballs_url, params: { basketball: { facts: @basketball.facts, name: @basketball.name + " create", team: @basketball.team } }
     end
 
     assert_redirected_to basketball_url(Basketball.last)
