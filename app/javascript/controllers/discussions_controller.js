@@ -13,12 +13,12 @@ export default class extends Controller {
    }
 
    upvote() {
-       let post = event.target.closest(".post");
+       let post = event.target.closest(".discussion");
        post.insertAdjacentHTML('beforeend', '<i class="fa fa-check-circle"></i>');
    }
-   
+
    remove() {
-       let post = event.target.closest(".post");
+       let post = event.target.closest(".discussion");
        post.style.visibility = "hidden";
    }
 }
