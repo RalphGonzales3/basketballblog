@@ -1,0 +1,25 @@
+%h1 Listing basketballs
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Team
+      %th Facts
+      %th
+      %th
+      %th
+
+  %tbody
+    - @basketballs.each do |basketball|
+      %tr
+        %td= basketball.name
+        %td= basketball.team
+        %td= basketball.facts
+        %td= link_to 'Show', basketball
+        %td= link_to 'Edit', edit_basketball_path(basketball)
+        %td= link_to 'Destroy', basketball, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Basketball', new_basketball_path
