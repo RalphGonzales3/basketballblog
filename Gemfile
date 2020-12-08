@@ -65,3 +65,4 @@ group do
 end
 
 gem 'jquery-rails'
+gem 'rails-controller-testing'
