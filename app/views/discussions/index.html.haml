@@ -13,11 +13,11 @@
     - @discussions.each do |discussion|
       %tr
         %td= discussion.body
-        %td= discussion.basketball
-        %td= link_to 'Show', discussion
-        %td= link_to 'Edit', edit_discussion_path(discussion)
-        %td= link_to 'Destroy', discussion, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= discussion.basketball.name
+        %td= link_to 'Show Player', [@basketball]
+        %td= link_to 'Edit Post', edit_basketball_discussion_path(@basketball, discussion)
+        %td= link_to 'Destroy Post', [@basketball, discussion], method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Discussion', new_discussion_path
+= link_to 'New Discussion', new_basketball_discussion_path(@basketball)

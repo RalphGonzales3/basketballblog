@@ -7,6 +7,6 @@
   %b Basketball:
   = @discussion.basketball
 
-= link_to 'Edit', edit_discussion_path(@discussion)
+= link_to 'Edit', edit_basketball_discussion_path(@basketball, @discussion)
 \|
-= link_to 'Back', discussions_path
+= link_to 'Back', basketball_discussions_path(@basketball)

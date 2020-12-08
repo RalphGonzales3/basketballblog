@@ -1,10 +1,11 @@
 class DiscussionsController < ApplicationController
+  before_action :get_basketball
   before_action :set_discussion, only: [:show, :edit, :update, :destroy]
 
   # GET /discussions
   # GET /discussions.json
   def index
-    @discussions = Discussion.all
+    @discussions = @basketball.discussions
   end
 
   # GET /discussions/1
@@ -14,7 +15,7 @@ class DiscussionsController < ApplicationController
 
   # GET /discussions/new
   def new
-    @discussion = Discussion.new
+    @discussion = @basketball.discussions.build
   end
 
   # GET /discussions/1/edit
@@ -24,11 +25,11 @@ class DiscussionsController < ApplicationController
   # POST /discussions
   # POST /discussions.json
   def create
-    @discussion = Discussion.new(discussion_params)
+    @discussion = @basketball.discussions.build(discussion_params)
 
     respond_to do |format|
       if @discussion.save
-        format.html { redirect_to @discussion, notice: 'Discussion was successfully created.' }
+        format.html { redirect_to basketball_discussions_path(@basketball), notice: 'Discussion was successfully created.' }
         format.json { render :show, status: :created, location: @discussion }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class DiscussionsController < ApplicationController
   def update
     respond_to do |format|
       if @discussion.update(discussion_params)
-        format.html { redirect_to @discussion, notice: 'Discussion was successfully updated.' }
+        format.html { redirect_to basketball_discussion_path(@basketball), notice: 'Discussion was successfully updated.' }
         format.json { render :show, status: :ok, location: @discussion }
       else
         format.html { render :edit }
@@ -56,15 +57,18 @@ class DiscussionsController < ApplicationController
   def destroy
     @discussion.destroy
     respond_to do |format|
-      format.html { redirect_to discussions_url, notice: 'Discussion was successfully destroyed.' }
+      format.html { redirect_to basketball_discussions_path(@basketball), notice: 'Discussion was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+    def get_basketball
+      @basketball = Basketball.find(params[:basketball_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_discussion
-      @discussion = Discussion.find(params[:id])
+      @discussion = @basketball.discussions.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

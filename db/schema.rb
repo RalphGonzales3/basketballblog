@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_08_002713) do
+ActiveRecord::Schema.define(version: 2020_12_08_085628) do
 
   create_table "basketballs", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2020_12_08_002713) do
     t.text "facts"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "discussions", force: :cascade do |t|
+    t.text "body"
+    t.integer "basketball_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["basketball_id"], name: "index_discussions_on_basketball_id"
   end
 
 end
