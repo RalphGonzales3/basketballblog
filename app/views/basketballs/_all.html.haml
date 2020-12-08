@@ -1,0 +1,6 @@
+- for discussion in @basketball.discussions
+  %ul
+    %li.discussion
+      = discussion.body
+      = button_tag "Remove Post", data: { controller: "discussions", action: "discussions#remove" }
+      = button_tag "Upvote Post", data: { controller: "discussions", action: "discussions#upvote" }

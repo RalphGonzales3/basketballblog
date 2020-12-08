@@ -9,14 +9,15 @@
 %p
   %b Facts:
   = @basketball.facts
-%p
-  %b Discussions:
-  - for discussion in @basketball.discussions
-    %ul
-      %li= discussion.body
+%h2 Discussions
+
+= render 'basketballs/posts'
 
 = link_to 'Edit', edit_basketball_path(@basketball)
 \|
 = link_to 'Back', basketballs_path
-\|
-= link_to 'Add Post', basketball_discussions_path(@basketball)
+
+%div{"data-controller" => "discussions"}
+  %button{"data-action" => "discussions#showAll"} Show Older Discussions
+  %div{"data-target" => "discussions.show", :style => "visibility:hidden"}
+    = render 'basketballs/all'

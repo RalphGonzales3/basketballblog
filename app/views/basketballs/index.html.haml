@@ -20,9 +20,9 @@
         %td{:class => "#{row_class}"}= basketball.name
         %td{:class => "#{row_class}"}= basketball.team
         %td{:class => "#{row_class}"}= basketball.facts
-        %td{:class => "#{row_class}"}= link_to 'Show', basketball
-        %td{:class => "#{row_class}"}= link_to 'Edit', edit_basketball_path(basketball)
-        %td{:class => "#{row_class}"}= link_to 'Destroy', basketball, method: :delete, data: { confirm: 'Are you sure?' }
+        %td{:class => "#{row_class}"}= button_to 'Show', basketball_path(:id => basketball.id), :method => :get
+        %td{:class => "#{row_class}"}= button_to 'Edit', edit_basketball_path(:id => basketball.id), :method => :get
+        %td{:class => "#{row_class}"}= button_to 'Destroy', basketball_path(:id => basketball.id), :method => :delete
 
 %br
 
