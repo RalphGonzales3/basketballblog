@@ -68,4 +68,4 @@ end
 
 gem 'jquery-rails'
 gem 'rails-controller-testing'
-gem 'devise'
+gem "devise", ">= 1.4.2"
