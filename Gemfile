@@ -68,3 +68,4 @@ end
 
 gem 'jquery-rails'
 gem 'rails-controller-testing'
+gem 'devise'
