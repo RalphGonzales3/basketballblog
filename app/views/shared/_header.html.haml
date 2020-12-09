@@ -1,5 +1,16 @@
 %header
   %h1 Basketball Blog
+  %nav
+    - if user_signed_in?
+      = "#{current_user.email}"
+      \|
+      = link_to t('profile'), edit_user_registration_path
+      \|
+      = link_to('Logout', destroy_user_session_path,  :method=>'delete')
+    - else
+      = link_to t('login'), new_user_session_path
+      \|
+      = link_to t('signup'), new_user_registration_path
   %head
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     %link{:href => "https://www.w3schools.com/w3css/4/w3.css", :rel => "stylesheet"}/
@@ -9,6 +20,3 @@
         %a.w3-bar-item.w3-button.w3-mobile{:href => "/"} Home
         %a.w3-bar-item.w3-button.w3-mobile{:href => "/basketball"} Basketball Players
         %a.w3-bar-item.w3-button.w3-mobile{:href => "/contact"} Contact Us
-
-%p.notice= notice
-%p.alert= alert

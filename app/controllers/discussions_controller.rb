@@ -1,6 +1,7 @@
 class DiscussionsController < ApplicationController
   before_action :get_basketball
   before_action :set_discussion, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /discussions
   # GET /discussions.json

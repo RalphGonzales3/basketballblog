@@ -1,5 +1,6 @@
 class BasketballsController < ApplicationController
   before_action :set_basketball, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /basketballs
   # GET /basketballs.json

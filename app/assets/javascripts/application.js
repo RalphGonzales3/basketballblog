@@ -11,7 +11,8 @@
 // about supported directives.
 //
 
-//=require bootstrap-sprockets
+//= require bootstrap-sprockets
+//= require jquery
 //= require jquery3
 //= require jquery_ujs
 //= require activestorage
