@@ -1,6 +1,6 @@
 class BasketballsController < ApplicationController
   before_action :set_basketball, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /basketballs
   # GET /basketballs.json
@@ -70,6 +70,6 @@ class BasketballsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def basketball_params
-      params.require(:basketball).permit(:name, :team, :facts)
+      params.require(:basketball).permit(:name, :team, :facts, :user_id)
     end
 end

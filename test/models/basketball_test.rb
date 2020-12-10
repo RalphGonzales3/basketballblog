@@ -18,6 +18,7 @@ class BasketballTest < ActiveSupport::TestCase
     basketball.name = "Kobe Bryant"
     basketball.team = "Los Angeles Lakers"
     basketball.facts = "He wore two jerseys, 8 and 24"
+    basketball.user_id = 1
 
     basketball.save
     assert basketball.valid?
@@ -28,6 +29,7 @@ class BasketballTest < ActiveSupport::TestCase
 
     basketball.team = "Los Angeles Lakers"
     basketball.facts = "He wore two jerseys, 8 and 24"
+    basketball.user_id = 1
 
     basketball.save
     refute basketball.valid?
@@ -38,6 +40,7 @@ class BasketballTest < ActiveSupport::TestCase
 
     basketball.name = "Kobe Bryant"
     basketball.facts = "He wore two jerseys, 8 and 24"
+    basketball.user_id = 1
 
     basketball.save
     refute basketball.valid?
@@ -48,6 +51,7 @@ class BasketballTest < ActiveSupport::TestCase
 
     basketball.name = "Kobe Bryant"
     basketball.team = "Los Angeles Lakers"
+    basketball.user_id = 1
 
     basketball.save
     refute basketball.valid?

@@ -24,7 +24,7 @@ class BasketballsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create basketball" do
     assert_difference('Basketball.count') do
-      post basketballs_url, params: { basketball: { facts: @basketball.facts, name: @basketball.name + " create", team: @basketball.team } }
+      post basketballs_url, params: { basketball: { facts: @basketball.facts, name: @basketball.name + " create", team: @basketball.team} }
     end
 
     assert_redirected_to basketball_url(Basketball.last)

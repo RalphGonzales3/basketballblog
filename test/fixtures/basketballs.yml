@@ -4,8 +4,11 @@ one:
   name: "Stephen Curry"
   team: "Golden State Warriors"
   facts: "3 point shooter"
+  user_id: 1
+
 
 two:
   name: "Lebron James"
   team: "Los Angeles Lakers"
   facts: "4 championships"
+  user_id: 1
