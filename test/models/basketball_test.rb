@@ -23,24 +23,34 @@ class BasketballTest < ActiveSupport::TestCase
     assert basketball.valid?
   end
 
-  test 'should not save duplicate team name' do
-    basketball1 = Basketball.new
+  test 'should not save basketball without name' do
+    basketball = Basketball.new
 
-    basketball1.name = "Kobe Bryant"
-    basketball1.team = "Los Angeles Lakers"
-    basketball1.facts = "He wore two jerseys, 8 and 24"
+    basketball.team = "Los Angeles Lakers"
+    basketball.facts = "He wore two jerseys, 8 and 24"
 
-    basketball1.save
-    assert basketball1.valid?
+    basketball.save
+    refute basketball.valid?
+  end
 
-    basketball2 = Basketball.new
+  test 'should not save basketball without team' do
+    basketball = Basketball.new
 
-    basketball2.name = "Kobe Bryant"
-    basketball2.team = "Golden State Warriors"
-    basketball2.facts = "Great player"
+    basketball.name = "Kobe Bryant"
+    basketball.facts = "He wore two jerseys, 8 and 24"
 
-    basketball2.save
-    refute basketball2.valid?
+    basketball.save
+    refute basketball.valid?
+  end
+
+  test 'should not save basketball without facts' do
+    basketball = Basketball.new
+
+    basketball.name = "Kobe Bryant"
+    basketball.team = "Los Angeles Lakers"
+
+    basketball.save
+    refute basketball.valid?
   end
 
 end

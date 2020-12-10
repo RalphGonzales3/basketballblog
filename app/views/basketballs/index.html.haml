@@ -6,6 +6,7 @@
       %th Name
       %th Team
       %th Facts
+      %th User
       %th{:colspan => "3"}
 
   %tbody
@@ -20,6 +21,7 @@
         %td{:class => "#{row_class}"}= basketball.name
         %td{:class => "#{row_class}"}= basketball.team
         %td{:class => "#{row_class}"}= basketball.facts
+        %td{:class => "#{row_class}"}= basketball.user.email
         %td{:class => "#{row_class}"}= button_to 'Show Thread', basketball_path(:id => basketball.id), :method => :get
         %td{:class => "#{row_class}"}= button_to 'Edit Player', edit_basketball_path(:id => basketball.id), :method => :get
         %td{:class => "#{row_class}"}= button_to 'Destroy', basketball_path(:id => basketball.id), :method => :delete

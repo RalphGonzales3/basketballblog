@@ -1,7 +1,7 @@
 class BasketballsController < ApplicationController
   before_action :set_basketball, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
+
   # GET /basketballs
   # GET /basketballs.json
   def index
@@ -15,7 +15,7 @@ class BasketballsController < ApplicationController
 
   # GET /basketballs/new
   def new
-    @basketball = Basketball.new
+    @basketball = current_user.basketballs.build
   end
 
   # GET /basketballs/1/edit
@@ -25,7 +25,7 @@ class BasketballsController < ApplicationController
   # POST /basketballs
   # POST /basketballs.json
   def create
-    @basketball = Basketball.new(basketball_params)
+    @basketball = current_user.basketballs.build(basketball_params)
 
     respond_to do |format|
       if @basketball.save
