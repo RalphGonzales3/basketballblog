@@ -1,8 +1,7 @@
 class BasketballsController < ApplicationController
   before_action :set_basketball, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  protect_from_forgery :except => [:delete]
-
+  
   # GET /basketballs
   # GET /basketballs.json
   def index

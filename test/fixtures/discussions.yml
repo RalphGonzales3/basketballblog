@@ -1,9 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  body: MyText
-  basketball: one
-
-two:
-  body: MyText
-  basketball: two
+  body: "Best three point shooter"
+  basketball_id: 1

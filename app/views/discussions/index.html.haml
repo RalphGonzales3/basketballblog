@@ -4,7 +4,7 @@
   %thead
     %tr
       %th Thread
-      %th Basketball
+      %th Player
       %th{:colspan => "3"}
 
   %tbody
@@ -19,8 +19,8 @@
         %td{:class => "#{row_class}"}= discussion.body
         %td{:class => "#{row_class}"}= discussion.basketball.name
         %td{:class => "#{row_class}"}= link_to 'Show Player', [@basketball]
-        %td{:class => "#{row_class}"}= link_to 'Edit Post', edit_basketball_discussion_path(@basketball, discussion)
-        %td{:class => "#{row_class}"}= link_to 'Destroy Post', [@basketball, discussion], method: :delete, data: { confirm: 'Are you sure?' }
+        %td{:class => "#{row_class}"}= link_to 'Edit Discussion', edit_basketball_discussion_path(@basketball, discussion)
+        %td{:class => "#{row_class}"}= link_to 'Destroy Discussion', [@basketball, discussion], method: :delete, data: { confirm: 'Are you sure?' }
 
 
 

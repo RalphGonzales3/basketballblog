@@ -3,6 +3,9 @@ require 'test_helper'
 class BasketballsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @basketball = basketballs(:one)
+    get '/users/sign_in'
+    sign_in users(:user_001)
+    post user_session_url
   end
 
   test "should get index" do
