@@ -1,17 +1,16 @@
-%nav
-  - if user_signed_in?
-    = "#{current_user.email}"
-    \|
-    = link_to t('profile'), edit_user_registration_path, class:"btn btn-light"
-    \|
-    = link_to "Logout", destroy_user_session_path, :method => :delete, class:"btn btn-light"
-  - else
-    = link_to t('login'), new_user_session_path, class:"btn btn-light"
-    \|
-    = link_to t('signup'), new_user_registration_path, class:"btn btn-light"
-
 %header
   %h1 Basketball Blog
+  %nav
+    - if user_signed_in?
+      = "#{current_user.email}"
+      \|
+      = link_to t('profile'), edit_user_registration_path, class:"btn btn-light"
+      \|
+      = link_to "Logout", destroy_user_session_path, :method => :delete, class:"btn btn-light"
+    - else
+      = link_to t('login'), new_user_session_path, class:"btn btn-light"
+      \|
+      = link_to t('signup'), new_user_registration_path, class:"btn btn-light"
   %head
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     %link{:href => "https://www.w3schools.com/w3css/4/w3.css", :rel => "stylesheet"}/
