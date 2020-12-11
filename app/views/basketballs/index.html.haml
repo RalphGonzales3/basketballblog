@@ -1,6 +1,6 @@
 %h1 Basketball Players
 
-%table
+%table.table
   %thead
     %tr
       %th Name
@@ -26,7 +26,5 @@
         - if basketball.user == current_user
           %td{:class => "#{row_class}"}= button_to 'Edit Player', edit_basketball_path(:id => basketball.id), :method => :get
           %td{:class => "#{row_class}"}= button_to 'Destroy', basketball_path(:id => basketball.id), :method => :delete
-        end
-%br
 
-= link_to 'New Player', new_basketball_path
+= link_to 'New Player', new_basketball_path, class:"btn btn-light"

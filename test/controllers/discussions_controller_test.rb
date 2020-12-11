@@ -21,7 +21,7 @@ class DiscussionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create discussion" do
     assert_difference('Discussion.count') do
-      post basketball_discussions_url(@discussion), params: { discussion: { basketball_id: @discussion.basketball_id, body: @discussion.body } }
+      post basketball_discussions_url(@discussion), params: { discussion: { basketball_id: @discussion.basketball_id.id, body: @discussion.body } }
     end
 
     assert_redirected_to discussion_url(Discussion.last)
@@ -38,7 +38,7 @@ class DiscussionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update discussion" do
-    patch basketball_discussion_url(@basketball, @discussion), params: { discussion: { basketball_id: @discussion.basketball_id, body: @discussion.body } }
+    patch basketball_discussion_url(@basketball, @discussion), params: { discussion: { basketball_id: @discussion.basketball_id.id, body: @discussion.body } }
     assert_redirected_to basketball_discussion_url(@basketball, @discussion)
   end
 

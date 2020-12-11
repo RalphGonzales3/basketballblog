@@ -1,21 +1,22 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @basketball.name
-%p
-  %b Team:
-  = @basketball.team
-%p
-  %b Facts:
-  = @basketball.facts
-%b Discussions
+.jumbotron
+  %h2.display-6
+    = @basketball.name
+  %p
+    %b Team:
+    = @basketball.team
+    %br
+    %br
+    %b Facts:
+    = @basketball.facts
+    %br
+    %br
+    = link_to 'Edit', edit_basketball_path(@basketball), class:"btn btn-light"
+    = link_to 'Back', basketballs_path, class:"btn btn-light"
 
+%h2 Discussions
 = render 'basketballs/posts'
-
-= link_to 'Edit', edit_basketball_path(@basketball)
-\|
-= link_to 'Back', basketballs_path
 
 %div{"data-controller" => "discussions"}
   %button{"data-action" => "discussions#showAll"} Show Older Discussions

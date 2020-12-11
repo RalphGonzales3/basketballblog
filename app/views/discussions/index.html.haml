@@ -18,12 +18,12 @@
       %tr
         %td{:class => "#{row_class}"}= discussion.body
         %td{:class => "#{row_class}"}= discussion.basketball.name
-        %td{:class => "#{row_class}"}= link_to 'Show Player', [@basketball]
-        %td{:class => "#{row_class}"}= link_to 'Edit Discussion', edit_basketball_discussion_path(@basketball, discussion)
-        %td{:class => "#{row_class}"}= link_to 'Destroy Discussion', [@basketball, discussion], method: :delete, data: { confirm: 'Are you sure?' }
+        %td{:class => "#{row_class}"}= link_to 'Show Player', [@basketball], class:"btn btn-light"
+        %td{:class => "#{row_class}"}= link_to 'Edit Discussion', edit_basketball_discussion_path(@basketball, discussion), class:"btn btn-light"
+        %td{:class => "#{row_class}"}= link_to 'Destroy Discussion', [@basketball, discussion], method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-light"
 
 
 
 %br
 
-= link_to 'New Discussion', new_basketball_discussion_path(@basketball)
+= link_to 'New Discussion', new_basketball_discussion_path(@basketball), class:"btn btn-light"

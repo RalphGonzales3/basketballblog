@@ -1,6 +1,6 @@
 %div{"data-controller" => "discussions"}
   = form_with model: [@basketball, @basketball.discussions.build], data: { action: "discussions#addBody"} do |form|
     = form.text_area :body, placeholder: "Your post here", data: { target: "discussions.body" }
-    %br/
+    %br
     = form.submit
   %ul{"data-target" => "discussions.add"}
