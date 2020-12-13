@@ -4,9 +4,7 @@ class DiscussionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @discussion = discussions(:one)
     @basketball = basketballs(:one)
-    get '/users/sign_in'
-    sign_in users(:user_001)
-    post user_session_url
+
   end
 
   test "should get index" do
@@ -21,7 +19,7 @@ class DiscussionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create discussion" do
     assert_difference('Discussion.count') do
-      post basketball_discussions_url(@discussion), params: { discussion: { basketball_id: @discussion.basketball_id.id, body: @discussion.body } }
+      post basketball_discussions_url(@discussion), params: { discussion: { basketball_id: @discussion.basketball_id, body: @discussion.body} }
     end
 
     assert_redirected_to discussion_url(Discussion.last)
@@ -33,12 +31,12 @@ class DiscussionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    get edit_basketball_discussion_url(@basketball, @discussion)
+    get edit_basketball_discussion_url(@discussion,@basketball)
     assert_response :success
   end
 
   test "should update discussion" do
-    patch basketball_discussion_url(@basketball, @discussion), params: { discussion: { basketball_id: @discussion.basketball_id.id, body: @discussion.body } }
+    patch basketball_discussion_url(@basketball, @discussion), params: { discussion: { basketball_id: @discussion.basketball_id, body: @discussion.body } }
     assert_redirected_to basketball_discussion_url(@basketball, @discussion)
   end
 
@@ -47,6 +45,6 @@ class DiscussionsControllerTest < ActionDispatch::IntegrationTest
       delete basketball_discussion_url(@basketball,@discussion)
     end
 
-    assert_redirected_to discussions_url
+    assert_redirected_to basketball_discussions_url
   end
 end
